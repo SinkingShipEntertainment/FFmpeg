@@ -31,6 +31,7 @@ with scope("config") as c:
 requires = [
     "nasm",
     "yasm",
+    "x264",
 ]
 
 private_build_requires = [
