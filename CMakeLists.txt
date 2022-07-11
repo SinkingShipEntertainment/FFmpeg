@@ -17,7 +17,7 @@ ExternalProject_add(
     SOURCE_DIR ${CMAKE_SOURCE_DIR}
     PREFIX ffmpeg
     UPDATE_COMMAND ""
-    CONFIGURE_COMMAND ${CMAKE_SOURCE_DIR}/configure --prefix=${CMAKE_INSTALL_PREFIX} --pkg-config-flags="--static" --extra-libs=-lpthread --extra-libs=-lm --enable-gpl --enable-libx264
+    CONFIGURE_COMMAND ${CMAKE_SOURCE_DIR}/configure --prefix=${CMAKE_INSTALL_PREFIX} --extra-libs=-lpthread --extra-libs=-lm --enable-gpl --enable-libx264 --enable-nonfree
     INSTALL_COMMAND "${install_cmd}"
     BUILD_IN_SOURCE 0
     BUILD_COMMAND make ${make_args}
