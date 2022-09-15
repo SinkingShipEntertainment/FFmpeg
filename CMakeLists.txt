@@ -12,12 +12,25 @@ else()
     set(install_cmd "")
 endif()
 
+
+# Possible configure settings (needs research):
+#--disable-asm
+#--enable-libmp3lame is causing configuration errors. If trying, make sure "libmp3lame" is a requirement in REZ
+
 ExternalProject_add(
     ffmpeg
     SOURCE_DIR ${CMAKE_SOURCE_DIR}
     PREFIX ffmpeg
     UPDATE_COMMAND ""
-    CONFIGURE_COMMAND ${CMAKE_SOURCE_DIR}/configure --prefix=${CMAKE_INSTALL_PREFIX} --extra-libs=-lpthread --extra-libs=-lm --enable-gpl --enable-libx264 --enable-nonfree
+    CONFIGURE_COMMAND ${CMAKE_SOURCE_DIR}/configure
+        --prefix=${CMAKE_INSTALL_PREFIX}
+        --extra-libs=-lpthread
+        --extra-libs=-lm
+        --enable-shared
+        --enable-nonfree
+        --enable-gpl
+        --enable-libx264
+        --enable-decoder=mp3
     INSTALL_COMMAND "${install_cmd}"
     BUILD_IN_SOURCE 0
     BUILD_COMMAND make ${make_args}

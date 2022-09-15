@@ -1,7 +1,6 @@
 name = "ffmpeg"
 
-# Remember to modify the commands function here
-version = "5.0.1"
+version = "5.0.1.sse.1.0.0"
 
 authors = [
     "FFmpeg"
@@ -32,6 +31,7 @@ requires = [
     "nasm",
     "yasm",
     "x264",
+    #"libmp3lame",
 ]
 
 private_build_requires = [
