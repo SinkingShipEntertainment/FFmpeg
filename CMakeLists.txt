@@ -13,6 +13,8 @@ else()
 endif()
 
 
+message($ENV{PKG_CONFIG_PATH})
+
 # Possible configure settings (needs research):
 #--disable-asm
 #--enable-libmp3lame is causing configuration errors. If trying, make sure "libmp3lame" is a requirement in REZ
@@ -20,7 +22,6 @@ endif()
 
 # Missing libs for xstudio
 # --enable-libfdk_aac
-# --enable-libfreetype
 # --enable-libmp3lame
 # --enable-libopus
 # --enable-libvpx
@@ -35,12 +36,16 @@ ExternalProject_add(
         --prefix=${CMAKE_INSTALL_PREFIX}
         --extra-libs=-lpthread
         --extra-libs=-lm
+        --disable-doc
         --enable-gpl
-        --enable-libx264
-        --enable-shared
+        --enable-version3
         --enable-nonfree
-        --enable-libfreetype
+        --enable-shared
+        --enable-libx264
         --enable-decoder=mp3
+        --enable-libfontconfig
+        --enable-libfreetype
+        --enable-libharfbuzz
     INSTALL_COMMAND "${install_cmd}"
     BUILD_IN_SOURCE 0
     BUILD_COMMAND make ${make_args}

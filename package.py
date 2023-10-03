@@ -1,6 +1,6 @@
 name = "ffmpeg"
 
-version = "5.1.3.sse.1.0.0"
+version = "6.1.0.sse.1.0.0"
 
 authors = [
     "FFmpeg"
@@ -21,6 +21,7 @@ requires = [
     "yasm",
     "x264",
     "freetype",
+    "harfbuzz",
     # "libmp3lame",
 ]
 
@@ -28,7 +29,8 @@ private_build_requires = [
 ]
 
 variants = [
-    ["platform-linux", "arch-x86_64", "os-centos-7"]
+    ["platform-linux", "arch-x86_64", "os-centos-7", "libpng"],
+    ["platform-linux", "arch-x86_64", "os-centos-7", "libspng"],
 ]
 
 uuid = "repository.FFmpeg"
@@ -37,8 +39,10 @@ uuid = "repository.FFmpeg"
 # rez-build -i --build-system cmake
 # rez-release --build-system cmake
 
+
 def pre_build_commands():
     command("source /opt/rh/devtoolset-6/enable")
+
 
 def commands():
     env.PATH.prepend("{root}/bin")

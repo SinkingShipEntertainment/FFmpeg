@@ -6764,7 +6764,7 @@ enabled libnpp            && { check_lib libnpp npp.h nppGetLibVersion -lnppig -
                                die "ERROR: libnpp not found"; }
 enabled libopencore_amrnb && require libopencore_amrnb opencore-amrnb/interf_dec.h Decoder_Interface_init -lopencore-amrnb
 enabled libopencore_amrwb && require libopencore_amrwb opencore-amrwb/dec_if.h D_IF_init -lopencore-amrwb
-enabled libopencv         && { check_headers opencv2/core/core_c.h &&
+enabled lib         && { check_headers opencv2/core/core_c.h &&
                                { check_pkg_config libopencv opencv opencv2/core/core_c.h cvCreateImageHeader ||
                                  require libopencv opencv2/core/core_c.h cvCreateImageHeader -lopencv_core -lopencv_imgproc; } ||
                                require_pkg_config libopencv opencv opencv/cxcore.h cvCreateImageHeader; }
