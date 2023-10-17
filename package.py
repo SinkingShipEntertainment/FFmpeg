@@ -1,6 +1,6 @@
 name = "ffmpeg"
 
-version = "6.1.0.sse.1.0.0"
+version = "6.1.0.sse.1.1.0"
 
 authors = [
     "FFmpeg"
@@ -22,6 +22,7 @@ requires = [
     "x264",
     "freetype",
     "harfbuzz",
+    "zimg",
     # "libmp3lame",
 ]
 
