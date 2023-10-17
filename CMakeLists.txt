@@ -46,6 +46,7 @@ ExternalProject_add(
         --enable-libfontconfig
         --enable-libfreetype
         --enable-libharfbuzz
+        --enable-libzimg
     INSTALL_COMMAND "${install_cmd}"
     BUILD_IN_SOURCE 0
     BUILD_COMMAND make ${make_args}
