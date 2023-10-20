@@ -1,6 +1,6 @@
 name = "ffmpeg"
 
-version = "6.1.0.sse.1.1.0"
+version = "6.1.0.sse.1.2.0"
 
 authors = [
     "FFmpeg"
@@ -20,6 +20,7 @@ requires = [
     "nasm",
     "yasm",
     "x264",
+    "libpng",
     "freetype",
     "harfbuzz",
     "zimg",
@@ -30,8 +31,7 @@ private_build_requires = [
 ]
 
 variants = [
-    ["platform-linux", "arch-x86_64", "os-centos-7", "libpng"],
-    ["platform-linux", "arch-x86_64", "os-centos-7", "libspng"],
+    ["platform-linux", "arch-x86_64", "os-centos-7"],
 ]
 
 uuid = "repository.FFmpeg"
