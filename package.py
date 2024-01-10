@@ -1,6 +1,6 @@
 name = "ffmpeg"
 
-version = "6.1.0.sse.1.2.0"
+version = "6.1.0.sse.1.3.0"
 
 authors = [
     "FFmpeg"
@@ -20,6 +20,7 @@ requires = [
     "nasm",
     "yasm",
     "x264",
+    "x265",
     "libpng",
     "freetype",
     "harfbuzz",
