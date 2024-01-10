@@ -25,7 +25,6 @@ message($ENV{PKG_CONFIG_PATH})
 # --enable-libmp3lame
 # --enable-libopus
 # --enable-libvpx
-# --enable-libx265
 
 ExternalProject_add(
     ffmpeg
@@ -42,6 +41,7 @@ ExternalProject_add(
         --enable-nonfree
         --enable-shared
         --enable-libx264
+        --enable-libx265
         --enable-decoder=mp3
         --enable-libfontconfig
         --enable-libfreetype
