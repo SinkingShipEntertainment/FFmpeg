@@ -55,5 +55,6 @@ def pre_build_commands():
         pass
 
 def commands():
+    env.FFMPEG_ROOT.prepend("{root}")
     env.PATH.prepend("{root}/bin")
     env.LD_LIBRARY_PATH.append("{root}/lib")
