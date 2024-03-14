@@ -41,7 +41,6 @@ ExternalProject_add(
         --enable-nonfree
         --enable-shared
         --enable-libx264
-        --enable-libx265
         --enable-decoder=mp3
         --enable-libfontconfig
         --enable-libfreetype
