@@ -1,6 +1,6 @@
 name = "ffmpeg"
 
-version = "6.1.0.sse.1.3.0"
+version = "6.1.1.sse.1.0.0"
 
 authors = [
     "FFmpeg"
@@ -20,31 +20,39 @@ requires = [
     "nasm",
     "yasm",
     "x264",
-    "x265",
     "libpng",
     "freetype",
     "harfbuzz",
-    "zimg",
-    # "libmp3lame",
 ]
 
 private_build_requires = [
 ]
 
 variants = [
-    ["platform-linux", "arch-x86_64", "os-centos-7"],
 ]
 
+build_system = "cmake"
 uuid = "repository.FFmpeg"
-
-# NOTE:
-# rez-build -i --build-system cmake
-# rez-release --build-system cmake
 
 
 def pre_build_commands():
-    command("source /opt/rh/devtoolset-6/enable")
 
+    info = {}
+    with open("/etc/os-release", 'r') as f:
+        for line in f.readlines():
+            if line.startswith('#'):
+                continue
+            line_info = line.replace('\n', '').split('=')
+            if len(line_info) != 2:
+                continue
+            info[line_info[0]] = line_info[1].replace('"', '')
+    linux_distro = info.get("NAME", "centos")
+    print("Using Linux distro: " + linux_distro)
+
+    if linux_distro.lower().startswith("centos"):
+        command("source /opt/rh/devtoolset-6/enable")
+    elif linux_distro.lower().startswith("rocky"):
+        pass
 
 def commands():
     env.PATH.prepend("{root}/bin")
